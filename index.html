@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYS.SEC // Password Analyzer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Matrix falling code background -->
+    <canvas id="matrix-canvas"></canvas>
+
+    <!-- Hacking simulation background text -->
+    <div id="hack-bg"></div>
+
+    <div class="dashboard-container">
+        <header class="cyber-header">
+            <h1><span class="prompt">root@system:~$</span> ./Shrey_Naik<span class="cursor">_</span></h1>
+            <p class="subtitle">SECURITY CLEARANCE LEVEL 0. STATUS: <span class="status-waiting">AWAITING INPUT</span></p>
+        </header>
+
+        <main class="analyzer-card">
+            <div class="input-group">
+                <input type="password" id="password-input" placeholder="Enter password to decrypt..." autocomplete="off">
+                <div class="input-actions">
+                    <button id="toggle-pwd" class="icon-btn" title="Toggle Visibility">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="eye-icon"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                    </button>
+                    <button id="copy-pwd" class="icon-btn" title="Copy Password">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="copy-icon"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="meter-section">
+                <div class="meter-header">
+                    <span>THREAT LEVEL: <span id="strength-text" class="strength-weak">CRITICAL</span></span>
+                    <span>SCORE: <span id="score-text">0</span>/100</span>
+                </div>
+                <div class="progress-bar-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+                <div class="time-to-crack">
+                    EST. TIME TO BRUTE FORCE: <span id="time-text">INSTANT</span>
+                </div>
+            </div>
+
+            <div class="terminal-output" id="terminal-output">
+                <div class="line"><span class="sys">SYSTEM:</span> Initializing password analyzer module...</div>
+                <div class="line"><span class="sys">SYSTEM:</span> Waiting for user input...</div>
+            </div>
+
+            <div class="requirements-grid">
+                <div class="req-item" id="req-length">[ ] Length >= 8</div>
+                <div class="req-item" id="req-upper">[ ] Uppercase</div>
+                <div class="req-item" id="req-lower">[ ] Lowercase</div>
+                <div class="req-item" id="req-number">[ ] Number</div>
+                <div class="req-item" id="req-special">[ ] Special Char</div>
+                <div class="req-item" id="req-entropy">[ ] High Entropy</div>
+            </div>
+            
+            <button id="test-btn" class="cyber-btn">EXECUTE_TEST()</button>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
